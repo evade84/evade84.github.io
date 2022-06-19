@@ -17,8 +17,12 @@ theme:
     # name: bootstrap386
     # name: bulma
   name: material
-  locale: en
+  palette:
+    primary: deep purple
+    accent: deep purple
 
+  locale: en
+  
 
 
 markdown_extensions:
