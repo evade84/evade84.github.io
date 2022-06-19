@@ -30,7 +30,7 @@ Pool must be one of the following types:
 
 * ***wall*** is like real wall - anyone can read from it and write anything on it!
 * ***vault*** is like real vault - it is safe and no passerby is able to break in it!
-* ***channel*** is like real media - anyone can read it, but only few people with access are able to write!
+* ***media*** is like real media - anyone can read it, but only few people with access are able to write!
 * ***box*** is like real box (I mean box with a small hole for papers and lock on it) - anyone can throw paper in it, only key owners are able to open it and read content of papers! 
 
 ### Pool access keys
