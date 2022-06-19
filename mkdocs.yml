@@ -1,0 +1,26 @@
+site_name: "evade84 documentation"
+site_description: "evade84 - fundamental system of anonymous communication."
+site_url: "https://evade84.github.io"
+site_author: "evade84"
+copyright: © evade84 2022
+
+repo_url: https://github.com/evade84
+repo_name: evade84 at GitHub
+
+remote_branch: html
+
+  #nav:
+  # - Introduction: 'index.md'
+  # - Getting started: './getting-started/*'
+  # - 'Issue Tracker': 'https://example.com/'
+
+theme:
+    # name: bootstrap386
+  name: material
+  locale: en
+
+markdown_extensions:
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: false
+
