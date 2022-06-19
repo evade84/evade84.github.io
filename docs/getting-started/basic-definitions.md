@@ -25,8 +25,13 @@ Pool must be one of the following types:
 |---------------|------------------------|-----------------------|----------------------|
 | ***wall***    | anyone                 | anyone                | *master-key* owner   |
 | ***vault***   | *write-key* owner      | *read-key* owner      | *master-key* owner   |
-| ***channel*** | *write-key* owner      | anyone                | *master-key* owner   |
+| ***media***   | *write-key* owner      | anyone                | *master-key* owner   |
 | ***box***     | anyone                 | *read-key* owner      | *master-key* owner   |
+
+* ***wall*** is like real wall - anyone can read from it and write anything on it!
+* ***vault*** is like real vault - it is safe and no passerby is able to break in it!
+* ***channel*** is like real media - anyone can read it, but only few people with access are able to write!
+* ***box*** is like real box (I mean box with a small hole for papers and lock on it) - anyone can throw paper in it, only key owners are able to open it and read content of papers! 
 
 ### Pool access keys
 Access to pool is managed via *access keys*.
@@ -48,7 +53,7 @@ There are three different types of them:
 ***Signature*** is used to authorize users. It is something that proves, that action was performed by the specific user.
 Anyone can create as many signatures as needed. Moreover, signature is optional, you may stay fully anonymous if you wish!
 
-*Signature* has ***content*** and ***identifier***.
+*Signature* has ***name*** (must be unique) and ***identifier***.
 
 > *Pool identifier* and *signature identifier* are different things. 
 *Pool identifier* means *pool tag* or *pool address*, when *signature identifier* means certain string which is unique and used to identify signature.
@@ -61,5 +66,8 @@ Signatures have meta data (all fields are **optional**):
 
 ### Signature access key
 Signature access is managed using **signature access key**.
-Anyone who owns this key is able to sign his/her messages or created pools with specific signature.
+Anyone who owns this key is able to sign his/her messages or created pools with specific signature; edit signature description.
+
+### Deleting signature
+Signature cannot be deleted.
 

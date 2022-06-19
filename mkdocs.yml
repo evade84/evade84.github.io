@@ -13,11 +13,13 @@ remote_branch: html
   # - Introduction: 'index.md'
   # - Getting started: './getting-started/*'
   # - 'Issue Tracker': 'https://example.com/'
-
 theme:
     # name: bootstrap386
+    # name: bulma
   name: material
   locale: en
+
+
 
 markdown_extensions:
   - def_list
