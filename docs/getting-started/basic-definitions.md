@@ -12,7 +12,7 @@ It can be used to link any specific pool as well as pool *address*.
 > Pool *tag* and pool *address* are called ***pool identifier***. 
 
 ### Pool meta data
-Pool also has some meta data (all fields are **optional**):
+Pool may have some meta data:
 
 * ***Description*** (mutable) - description of pool 
 * ***Creator signature*** (mutable) - *signature* of pool creator
@@ -21,17 +21,17 @@ Pool also has some meta data (all fields are **optional**):
 ### Pool types
 Pool must be one of the following types:
 
-| Type          | Who can write messages | Who can read messages | Who can manage pool  |
-|---------------|------------------------|-----------------------|----------------------|
-| ***wall***    | anyone                 | anyone                | *master-key* owner   |
-| ***vault***   | *write-key* owner      | *read-key* owner      | *master-key* owner   |
-| ***media***   | *write-key* owner      | anyone                | *master-key* owner   |
-| ***box***     | anyone                 | *read-key* owner      | *master-key* owner   |
+| Type          | Who can write messages  | Who can read messages  | Who can manage pool  |
+|---------------|-------------------------|------------------------|----------------------|
+| ***wall***    | anyone                  | anyone                 | *master-key* owner   |
+| ***tunnel***  | *writer-key* owner      | *reader-key* owner     | *master-key* owner   |
+| ***channel*** | *writer-key* owner      | anyone                 | *master-key* owner   |
+| ***mailbox*** | anyone                  | *reader-key* owner     | *master-key* owner   |
 
 * ***wall*** is like real wall - anyone can read from it and write anything on it!
-* ***vault*** is like real vault - it is safe and no passerby is able to break in it!
-* ***media*** is like real media - anyone can read it, but only few people with access are able to write!
-* ***box*** is like real box (I mean box with a small hole for papers and lock on it) - anyone can throw paper in it, only key owners are able to open it and read content of papers! 
+* ***tunnel*** is like real vault - it is safe and no passerby is able to break in it!
+* ***channel*** is like channel in Telegram or Youtube - anyone can read it, but only few people with access are able to write!
+* ***mailbox*** is like real mailbox (I mean box with a small hole for letters and lock on it) - anyone can throw letter into it, only key owners are able to open it and read messages! 
 
 ### Pool access keys
 Access to pool is managed via *access keys*.
@@ -39,27 +39,24 @@ There are three different types of them:
 
 * ***master-key*** is present in pools of any type. It provides access to:
 * * Editing pool meta data
-* * Editing *write-key* and *master-key*
+* * Editing *writer-key* and *master-key*
 * * Deleting pool
-* ***write-key*** provides access to writing messages in pools which are *vault* or *channel*.
-* ***read-key*** provides access to reading messages in pools which are *vault* or *box*.
+* ***writer-key*** provides access to writing messages in pools which are *tunnel* or *channel*.
+* ***reader-key*** provides access to reading messages in pools which are *tunnel* or *mailbox*.
 
-> Pool, depending on its type has *write-key* and/or *read-key*. But it always has a *master-key*.
-
-### Indexable and non-indexable pools
-...
+> Pool, depending on its type has *writer-key* and/or *reader-key*. But it always has a *master-key*.
 
 ## Signature
 ***Signature*** is used to authorize users. It is something that proves, that action was performed by the specific user.
 Anyone can create as many signatures as needed. Moreover, signature is optional, you may stay fully anonymous if you wish!
 
-*Signature* has ***name*** (must be unique) and ***identifier***.
+*Signature* has ***value*** (your name or pseudonym) and ***unique identifier***.
 
 > *Pool identifier* and *signature identifier* are different things. 
 *Pool identifier* means *pool tag* or *pool address*, when *signature identifier* means certain string which is unique and used to identify signature.
 
 ### Signature meta data
-Signatures have meta data (all fields are **optional**):
+Signatures have some meta data:
 
 * ***Description*** (mutable) - description of signature.
 * ***Creation date*** (immutable) - date when signature was created.
