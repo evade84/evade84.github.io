@@ -8,7 +8,7 @@ Anyone in the world can run evade84 node (even you, little pickle)!
 > Every node has ***name***. Node owner may call his or her node as he likes.
 
 ## Pool
-***Pool*** is something like chat-room or chat in Telegram. It contains messages sent by users.
+***Pool*** is something like chat-room or chat in Telegram or other messenger. It contains messages sent by users.
 
 Every pool has a unique ***address*** 
 (which is literally a hex value of pools [uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random))). 
@@ -21,11 +21,11 @@ It can be used to link any specific pool as well as pool *address*.
 ### Pool metadata
 Pool may have some metadata:
 
-* ***Description*** (optional, mutable) - description of pool 
-* ***Creator signature*** (optional immutable) - [signature](#signature) of the pool creator
-* ***Creation date*** (required, immutable) - date of pool creation
-* ***Encryption info*** (required, immutable) - information about pool encryption
-* ***Publicity*** (required, immutable) - information about pool publicity
+* ***Description*** (optional, mutable) - description of pool.
+* ***Creator signature*** (optional immutable) - [signature](#signature) of the pool creator.
+* ***Creation date*** (required, immutable) - date of pool creation.
+* ***Encryption info*** (required, immutable) - information about pool encryption.
+* ***Publicity*** (required, immutable) - information about pool publicity.
 
 ### Pool types
 Pool must be one of the following types:
@@ -37,17 +37,17 @@ Pool must be one of the following types:
 | ***channel*** | *writer-key* owner     | anyone                | *master-key* owner  | no             |
 | ***mailbox*** | anyone                 | *reader-key* owner    | *master-key* owner  | no             |
 
-* ***wall*** is like a real wall - anyone can read from it and write anything on it!
+* **wall** is like a real wall - anyone can read from it and write anything on it!
 ![wall](https://i.pinimg.com/originals/8b/5a/ec/8b5aec28a13eaf85248b54a45ca9b9d1.jpg)
-* ***chat*** is like a private dialog - only participants have access to it. It also may be encrypted!
+* **chat** is like a private dialog - only participants have access to it. It also may be encrypted!
 ![chat](https://pbs.twimg.com/media/BJVaTIrCUAAaPkp.jpg)
-* ***channel*** is like a TV, Telegram or YouTube channel - anyone can read and watch it, but only a few people with access can provide content!
+* **channel** is like a TV, Telegram or YouTube channel - anyone can read and watch it, but only a few people with access can provide content!
 ![channel](http://flowjournal.org/wp-content/uploads/2009/09/hdtv.png)
-* ***mailbox*** is like a real mailbox (I mean box with a small hole for letters and lock on it) - anyone can throw letter into it, only key owners are able to open it and read messages!
+* **mailbox** is like a real mailbox (I mean box with a small hole for letters and lock on it) - anyone can throw letter into it, only key owners are able to open it and read messages!
 ![mailbox](https://media.tenor.com/images/dad345322abaecc84f726fe844441984/raw)
 
 ### Pool access keys
-Access to pool is managed via ***access keys***.
+Access to pool is managed via **access keys**.
 There are three different types of them:
 
 * ***master-key*** is present in pools of any type. It provides access to editing (including keys) and deleting pool.
