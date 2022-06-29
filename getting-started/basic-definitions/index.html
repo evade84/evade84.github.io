@@ -290,6 +290,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#node" class="md-nav__link">
+    Node
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pool" class="md-nav__link">
     Pool
   </a>
@@ -332,8 +339,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#signature-meta-data" class="md-nav__link">
-    Signature meta data
+  <a href="#signature-metadata" class="md-nav__link">
+    Signature metadata
   </a>
   
 </li>
@@ -427,6 +434,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#node" class="md-nav__link">
+    Node
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pool" class="md-nav__link">
     Pool
   </a>
@@ -469,8 +483,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#signature-meta-data" class="md-nav__link">
-    Signature meta data
+  <a href="#signature-metadata" class="md-nav__link">
+    Signature metadata
   </a>
   
 </li>
@@ -516,20 +530,25 @@
 <blockquote>
 <p>The article contains important terms for understanding the system.</p>
 </blockquote>
+<h2 id="node">Node</h2>
+<p><strong><em>Node</em></strong> is server that runs <a href="https://github.com/evade84/evade84-node">evade84-node</a> instance.
+Anyone is able to run node!</p>
 <h2 id="pool">Pool</h2>
 <p><strong><em>Pool</em></strong> is something like chat-room or chat in Telegram. It contains messages sent by users.</p>
-<p>Every pool has an unique <strong><em>address</em></strong> (which is literally a hex value of <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)">uuid4</a>). </p>
-<p>Also pool may optionally have a <strong><em>tag</em></strong>. It is an unique readable identifier (e.g. <code>my-blog123</code>). 
+<p>Every pool has a unique <strong><em>address</em></strong> (which is literally a hex value of pools <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)">uuid4</a>). </p>
+<p>Also pool may optionally have a <strong><em>tag</em></strong>. It is a unique readable identifier (e.g. <code>my-blog123</code>). 
 It can be used to link any specific pool as well as pool <em>address</em>.</p>
 <blockquote>
 <p>Pool <em>tag</em> and pool <em>address</em> are called <strong><em>pool identifier</em></strong>. </p>
 </blockquote>
 <h3 id="pool-meta-data">Pool meta data</h3>
-<p>Pool may have some meta data:</p>
+<p>Pool may have some metadata:</p>
 <ul>
-<li><strong><em>Description</em></strong> (mutable) - description of pool </li>
-<li><strong><em>Creator signature</em></strong> (mutable) - <em>signature</em> of pool creator</li>
-<li><strong><em>Creation date</em></strong> (immutable) - date of pool creation</li>
+<li><strong><em>Description</em></strong> (optional, mutable) - description of pool </li>
+<li><strong><em>Creator signature</em></strong> (optional immutable) - <a href="/#signature">signature</a> of the pool creator</li>
+<li><strong><em>Creation date</em></strong> (required, immutable) - date of pool creation</li>
+<li><strong><em>Encryption info</em></strong> (required, immutable) - information about pool encryption</li>
+<li><strong><em>Publicity</em></strong> (required, immutable) - information about pool publicity</li>
 </ul>
 <h3 id="pool-types">Pool types</h3>
 <p>Pool must be one of the following types:</p>
@@ -540,6 +559,7 @@ It can be used to link any specific pool as well as pool <em>address</em>.</p>
 <th>Who can write messages</th>
 <th>Who can read messages</th>
 <th>Who can manage pool</th>
+<th>AES Encryption</th>
 </tr>
 </thead>
 <tbody>
@@ -548,41 +568,45 @@ It can be used to link any specific pool as well as pool <em>address</em>.</p>
 <td>anyone</td>
 <td>anyone</td>
 <td><em>master-key</em> owner</td>
+<td>no</td>
 </tr>
 <tr>
-<td><strong><em>tunnel</em></strong></td>
+<td><strong><em>chat</em></strong></td>
 <td><em>writer-key</em> owner</td>
 <td><em>reader-key</em> owner</td>
 <td><em>master-key</em> owner</td>
+<td>optional</td>
 </tr>
 <tr>
 <td><strong><em>channel</em></strong></td>
 <td><em>writer-key</em> owner</td>
 <td>anyone</td>
 <td><em>master-key</em> owner</td>
+<td>no</td>
 </tr>
 <tr>
 <td><strong><em>mailbox</em></strong></td>
 <td>anyone</td>
 <td><em>reader-key</em> owner</td>
 <td><em>master-key</em> owner</td>
+<td>no</td>
 </tr>
 </tbody>
 </table>
 <ul>
 <li><strong><em>wall</em></strong> is like real wall - anyone can read from it and write anything on it!</li>
-<li><strong><em>tunnel</em></strong> is like real vault - it is safe and no passerby is able to break in it!</li>
-<li><strong><em>channel</em></strong> is like channel in Telegram or Youtube - anyone can read it, but only few people with access are able to write!</li>
+<li><strong><em>chat</em></strong> is like private dialog - only participants have access to it. It also may be encrypted!</li>
+<li><strong><em>channel</em></strong> is like channel in Telegram or YouTube - anyone can get information from it, but only few people with access are able to write!</li>
 <li><strong><em>mailbox</em></strong> is like real mailbox (I mean box with a small hole for letters and lock on it) - anyone can throw letter into it, only key owners are able to open it and read messages! </li>
 </ul>
 <h3 id="pool-access-keys">Pool access keys</h3>
-<p>Access to pool is managed via <em>access keys</em>.
+<p>Access to pool is managed via <strong><em>access keys</em></strong>.
 There are three different types of them:</p>
 <ul>
 <li><strong><em>master-key</em></strong> is present in pools of any type. It provides access to:</li>
 <li>
 <ul>
-<li>Editing pool meta data</li>
+<li>Editing pool metadata</li>
 </ul>
 </li>
 <li>
@@ -595,8 +619,8 @@ There are three different types of them:</p>
 <li>Deleting pool</li>
 </ul>
 </li>
-<li><strong><em>writer-key</em></strong> provides access to writing messages in pools which are <em>tunnel</em> or <em>channel</em>.</li>
-<li><strong><em>reader-key</em></strong> provides access to reading messages in pools which are <em>tunnel</em> or <em>mailbox</em>.</li>
+<li><strong><em>writer-key</em></strong> provides access to writing messages in pools which are <em>chat</em> or <em>channel</em>.</li>
+<li><strong><em>reader-key</em></strong> provides access to reading messages in pools which are <em>chat</em> or <em>mailbox</em>.</li>
 </ul>
 <blockquote>
 <p>Pool, depending on its type has <em>writer-key</em> and/or <em>reader-key</em>. But it always has a <em>master-key</em>.</p>
@@ -604,16 +628,16 @@ There are three different types of them:</p>
 <h2 id="signature">Signature</h2>
 <p><strong><em>Signature</em></strong> is used to authorize users. It is something that proves, that action was performed by the specific user.
 Anyone can create as many signatures as needed. Moreover, signature is optional, you may stay fully anonymous if you wish!</p>
-<p><em>Signature</em> has <strong><em>value</em></strong> (your name or pseudonym) and <strong><em>unique identifier</em></strong>.</p>
+<p><em>Signature</em> has <strong><em>value</em></strong> (your name or pseudonym) and <strong><em>uuid</em></strong> (unique identifier).</p>
 <blockquote>
 <p><em>Pool identifier</em> and <em>signature identifier</em> are different things. 
 <em>Pool identifier</em> means <em>pool tag</em> or <em>pool address</em>, when <em>signature identifier</em> means certain string which is unique and used to identify signature.</p>
 </blockquote>
-<h3 id="signature-meta-data">Signature meta data</h3>
-<p>Signatures have some meta data:</p>
+<h3 id="signature-metadata">Signature metadata</h3>
+<p>Signatures also have some metadata:</p>
 <ul>
-<li><strong><em>Description</em></strong> (mutable) - description of signature.</li>
-<li><strong><em>Creation date</em></strong> (immutable) - date when signature was created.</li>
+<li><strong><em>Description</em></strong> (optional, mutable) - description of signature.</li>
+<li><strong><em>Creation date</em></strong> (required, immutable) - date when signature was created.</li>
 </ul>
 <h3 id="signature-access-key">Signature access key</h3>
 <p>Signature access is managed using <strong>signature access key</strong>.
