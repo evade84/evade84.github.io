@@ -3,14 +3,17 @@
 
 ## Node
 ***Node*** is server that runs [evade84-node](https://github.com/evade84/evade84-node) instance.
-Anyone is able to run node!
+Anyone in the world can run evade84 node (even you, little pickle)!
+
+> Every node has ***name***. Node owner may call his or her node as he likes.
 
 ## Pool
 ***Pool*** is something like chat-room or chat in Telegram. It contains messages sent by users.
 
-Every pool has a unique ***address*** (which is literally a hex value of pools [uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random))). 
+Every pool has a unique ***address*** 
+(which is literally a hex value of pools [uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random))). 
 
-Also pool may optionally have a ***tag***. It is a unique readable identifier (e.g. `my-blog123`). 
+Also, pool may optionally have a ***tag***. It is a unique readable identifier (e.g. `my-blog123`). 
 It can be used to link any specific pool as well as pool *address*.
 
 > Pool *tag* and pool *address* are called ***pool identifier***. 
@@ -34,29 +37,39 @@ Pool must be one of the following types:
 | ***channel*** | *writer-key* owner     | anyone                | *master-key* owner  | no             |
 | ***mailbox*** | anyone                 | *reader-key* owner    | *master-key* owner  | no             |
 
-* ***wall*** is like real wall - anyone can read from it and write anything on it!
-* ***chat*** is like private dialog - only participants have access to it. It also may be encrypted!
-* ***channel*** is like channel in Telegram or YouTube - anyone can get information from it, but only few people with access are able to write!
-* ***mailbox*** is like real mailbox (I mean box with a small hole for letters and lock on it) - anyone can throw letter into it, only key owners are able to open it and read messages! 
+* ***wall*** is like a real wall - anyone can read from it and write anything on it!
+![wall](https://i.pinimg.com/originals/8b/5a/ec/8b5aec28a13eaf85248b54a45ca9b9d1.jpg)
+* ***chat*** is like a private dialog - only participants have access to it. It also may be encrypted!
+![chat](https://pbs.twimg.com/media/BJVaTIrCUAAaPkp.jpg)
+* ***channel*** is like a TV, Telegram or YouTube channel - anyone can read and watch it, but only a few people with access can provide content!
+![channel](http://flowjournal.org/wp-content/uploads/2009/09/hdtv.png)
+* ***mailbox*** is like a real mailbox (I mean box with a small hole for letters and lock on it) - anyone can throw letter into it, only key owners are able to open it and read messages!
+![mailbox](https://media.tenor.com/images/dad345322abaecc84f726fe844441984/raw)
 
 ### Pool access keys
 Access to pool is managed via ***access keys***.
 There are three different types of them:
 
-* ***master-key*** is present in pools of any type. It provides access to:
-* * Editing pool metadata
-* * Editing *writer-key* and *master-key*
-* * Deleting pool
-* ***writer-key*** provides access to writing messages in pools which are *chat* or *channel*.
-* ***reader-key*** provides access to reading messages in pools which are *chat* or *mailbox*.
+* ***master-key*** is present in pools of any type. It provides access to editing (including keys) and deleting pool.
+* ***writer-key*** provides access to writing messages in pools. 
+* ***reader-key*** provides access to reading messages in pools.
 
-> Pool, depending on its type has *writer-key* and/or *reader-key*. But it always has a *master-key*.
+> Pool, depending on its [type](#pool-types) has *writer-key* and/or *reader-key*. But it always has a *master-key*.
+
+## Message
+***Message*** is... well... a message! Pools contains list of messages.
+Messages may optionally have authors [signature](#signature) and may be optionally encrypted using 
+[AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). Every message has ***id*** - serial number
+of the message in specific pool.
 
 ## Signature
 ***Signature*** is used to authorize users. It is something that proves, that action was performed by the specific user.
 Anyone can create as many signatures as needed. Moreover, signature is optional, you may stay fully anonymous if you wish!
 
-*Signature* has ***value*** (your name or pseudonym) and ***uuid*** (unique identifier).
+![signature](https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Alan_Turing_signature.svg/1280px-Alan_Turing_signature.svg.png)
+
+*Signature* has ***value*** - name or pseudonym (may be not unique) and ***uuid*** - unique identifier.
+
 
 > *Pool identifier* and *signature identifier* are different things. 
 *Pool identifier* means *pool tag* or *pool address*, when *signature identifier* means certain string which is unique and used to identify signature.
