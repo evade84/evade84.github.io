@@ -15,11 +15,11 @@ It can be used to link any specific pool as well as pool *address*.
 
 > Pool *tag* and pool *address* are called ***pool identifier***. 
 
-### Pool meta data
+### Pool metadata
 Pool may have some metadata:
 
 * ***Description*** (optional, mutable) - description of pool 
-* ***Creator signature*** (optional immutable) - [signature](/#signature) of the pool creator
+* ***Creator signature*** (optional immutable) - [signature](#signature) of the pool creator
 * ***Creation date*** (required, immutable) - date of pool creation
 * ***Encryption info*** (required, immutable) - information about pool encryption
 * ***Publicity*** (required, immutable) - information about pool publicity
