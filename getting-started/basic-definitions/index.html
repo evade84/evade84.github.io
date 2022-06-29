@@ -331,6 +331,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#message" class="md-nav__link">
+    Message
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#signature" class="md-nav__link">
     Signature
   </a>
@@ -475,6 +482,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#message" class="md-nav__link">
+    Message
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#signature" class="md-nav__link">
     Signature
   </a>
@@ -532,11 +546,15 @@
 </blockquote>
 <h2 id="node">Node</h2>
 <p><strong><em>Node</em></strong> is server that runs <a href="https://github.com/evade84/evade84-node">evade84-node</a> instance.
-Anyone is able to run node!</p>
+Anyone in the world can run evade84 node (even you, little pickle)!</p>
+<blockquote>
+<p>Every node has <strong><em>name</em></strong>. Node owner may call his or her node as he likes.</p>
+</blockquote>
 <h2 id="pool">Pool</h2>
 <p><strong><em>Pool</em></strong> is something like chat-room or chat in Telegram. It contains messages sent by users.</p>
-<p>Every pool has a unique <strong><em>address</em></strong> (which is literally a hex value of pools <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)">uuid4</a>). </p>
-<p>Also pool may optionally have a <strong><em>tag</em></strong>. It is a unique readable identifier (e.g. <code>my-blog123</code>). 
+<p>Every pool has a unique <strong><em>address</em></strong> 
+(which is literally a hex value of pools <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)">uuid4</a>). </p>
+<p>Also, pool may optionally have a <strong><em>tag</em></strong>. It is a unique readable identifier (e.g. <code>my-blog123</code>). 
 It can be used to link any specific pool as well as pool <em>address</em>.</p>
 <blockquote>
 <p>Pool <em>tag</em> and pool <em>address</em> are called <strong><em>pool identifier</em></strong>. </p>
@@ -594,41 +612,36 @@ It can be used to link any specific pool as well as pool <em>address</em>.</p>
 </tbody>
 </table>
 <ul>
-<li><strong><em>wall</em></strong> is like real wall - anyone can read from it and write anything on it!</li>
-<li><strong><em>chat</em></strong> is like private dialog - only participants have access to it. It also may be encrypted!</li>
-<li><strong><em>channel</em></strong> is like channel in Telegram or YouTube - anyone can get information from it, but only few people with access are able to write!</li>
-<li><strong><em>mailbox</em></strong> is like real mailbox (I mean box with a small hole for letters and lock on it) - anyone can throw letter into it, only key owners are able to open it and read messages! </li>
+<li><strong><em>wall</em></strong> is like a real wall - anyone can read from it and write anything on it!
+<img alt="wall" src="https://i.pinimg.com/originals/8b/5a/ec/8b5aec28a13eaf85248b54a45ca9b9d1.jpg" /></li>
+<li><strong><em>chat</em></strong> is like a private dialog - only participants have access to it. It also may be encrypted!
+<img alt="chat" src="https://pbs.twimg.com/media/BJVaTIrCUAAaPkp.jpg" /></li>
+<li><strong><em>channel</em></strong> is like a TV, Telegram or YouTube channel - anyone can read and watch it, but only a few people with access can provide content!
+<img alt="channel" src="http://flowjournal.org/wp-content/uploads/2009/09/hdtv.png" /></li>
+<li><strong><em>mailbox</em></strong> is like a real mailbox (I mean box with a small hole for letters and lock on it) - anyone can throw letter into it, only key owners are able to open it and read messages!
+<img alt="mailbox" src="https://media.tenor.com/images/dad345322abaecc84f726fe844441984/raw" /></li>
 </ul>
 <h3 id="pool-access-keys">Pool access keys</h3>
 <p>Access to pool is managed via <strong><em>access keys</em></strong>.
 There are three different types of them:</p>
 <ul>
-<li><strong><em>master-key</em></strong> is present in pools of any type. It provides access to:</li>
-<li>
-<ul>
-<li>Editing pool metadata</li>
-</ul>
-</li>
-<li>
-<ul>
-<li>Editing <em>writer-key</em> and <em>master-key</em></li>
-</ul>
-</li>
-<li>
-<ul>
-<li>Deleting pool</li>
-</ul>
-</li>
-<li><strong><em>writer-key</em></strong> provides access to writing messages in pools which are <em>chat</em> or <em>channel</em>.</li>
-<li><strong><em>reader-key</em></strong> provides access to reading messages in pools which are <em>chat</em> or <em>mailbox</em>.</li>
+<li><strong><em>master-key</em></strong> is present in pools of any type. It provides access to editing (including keys) and deleting pool.</li>
+<li><strong><em>writer-key</em></strong> provides access to writing messages in pools. </li>
+<li><strong><em>reader-key</em></strong> provides access to reading messages in pools.</li>
 </ul>
 <blockquote>
-<p>Pool, depending on its type has <em>writer-key</em> and/or <em>reader-key</em>. But it always has a <em>master-key</em>.</p>
+<p>Pool, depending on its <a href="#pool-types">type</a> has <em>writer-key</em> and/or <em>reader-key</em>. But it always has a <em>master-key</em>.</p>
 </blockquote>
+<h2 id="message">Message</h2>
+<p><strong><em>Message</em></strong> is... well... a message! Pools contains list of messages.
+Messages may optionally have authors <a href="#signature">signature</a> and may be optionally encrypted using 
+<a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">AES</a>. Every message has <strong><em>id</em></strong> - serial number
+of the message in specific pool.</p>
 <h2 id="signature">Signature</h2>
 <p><strong><em>Signature</em></strong> is used to authorize users. It is something that proves, that action was performed by the specific user.
 Anyone can create as many signatures as needed. Moreover, signature is optional, you may stay fully anonymous if you wish!</p>
-<p><em>Signature</em> has <strong><em>value</em></strong> (your name or pseudonym) and <strong><em>uuid</em></strong> (unique identifier).</p>
+<p><img alt="signature" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Alan_Turing_signature.svg/1280px-Alan_Turing_signature.svg.png" /></p>
+<p><em>Signature</em> has <strong><em>value</em></strong> - name or pseudonym (may be not unique) and <strong><em>uuid</em></strong> - unique identifier.</p>
 <blockquote>
 <p><em>Pool identifier</em> and <em>signature identifier</em> are different things. 
 <em>Pool identifier</em> means <em>pool tag</em> or <em>pool address</em>, when <em>signature identifier</em> means certain string which is unique and used to identify signature.</p>
