@@ -551,7 +551,7 @@ Anyone in the world can run evade84 node (even you, little pickle)!</p>
 <p>Every node has <strong><em>name</em></strong>. Node owner may call his or her node as he likes.</p>
 </blockquote>
 <h2 id="pool">Pool</h2>
-<p><strong><em>Pool</em></strong> is something like chat-room or chat in Telegram. It contains messages sent by users.</p>
+<p><strong><em>Pool</em></strong> is something like chat-room or chat in Telegram or other messenger. It contains messages sent by users.</p>
 <p>Every pool has a unique <strong><em>address</em></strong> 
 (which is literally a hex value of pools <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)">uuid4</a>). </p>
 <p>Also, pool may optionally have a <strong><em>tag</em></strong>. It is a unique readable identifier (e.g. <code>my-blog123</code>). 
@@ -562,11 +562,11 @@ It can be used to link any specific pool as well as pool <em>address</em>.</p>
 <h3 id="pool-metadata">Pool metadata</h3>
 <p>Pool may have some metadata:</p>
 <ul>
-<li><strong><em>Description</em></strong> (optional, mutable) - description of pool </li>
-<li><strong><em>Creator signature</em></strong> (optional immutable) - <a href="#signature">signature</a> of the pool creator</li>
-<li><strong><em>Creation date</em></strong> (required, immutable) - date of pool creation</li>
-<li><strong><em>Encryption info</em></strong> (required, immutable) - information about pool encryption</li>
-<li><strong><em>Publicity</em></strong> (required, immutable) - information about pool publicity</li>
+<li><strong><em>Description</em></strong> (optional, mutable) - description of pool.</li>
+<li><strong><em>Creator signature</em></strong> (optional immutable) - <a href="#signature">signature</a> of the pool creator.</li>
+<li><strong><em>Creation date</em></strong> (required, immutable) - date of pool creation.</li>
+<li><strong><em>Encryption info</em></strong> (required, immutable) - information about pool encryption.</li>
+<li><strong><em>Publicity</em></strong> (required, immutable) - information about pool publicity.</li>
 </ul>
 <h3 id="pool-types">Pool types</h3>
 <p>Pool must be one of the following types:</p>
@@ -612,17 +612,17 @@ It can be used to link any specific pool as well as pool <em>address</em>.</p>
 </tbody>
 </table>
 <ul>
-<li><strong><em>wall</em></strong> is like a real wall - anyone can read from it and write anything on it!
+<li><strong>wall</strong> is like a real wall - anyone can read from it and write anything on it!
 <img alt="wall" src="https://i.pinimg.com/originals/8b/5a/ec/8b5aec28a13eaf85248b54a45ca9b9d1.jpg" /></li>
-<li><strong><em>chat</em></strong> is like a private dialog - only participants have access to it. It also may be encrypted!
+<li><strong>chat</strong> is like a private dialog - only participants have access to it. It also may be encrypted!
 <img alt="chat" src="https://pbs.twimg.com/media/BJVaTIrCUAAaPkp.jpg" /></li>
-<li><strong><em>channel</em></strong> is like a TV, Telegram or YouTube channel - anyone can read and watch it, but only a few people with access can provide content!
+<li><strong>channel</strong> is like a TV, Telegram or YouTube channel - anyone can read and watch it, but only a few people with access can provide content!
 <img alt="channel" src="http://flowjournal.org/wp-content/uploads/2009/09/hdtv.png" /></li>
-<li><strong><em>mailbox</em></strong> is like a real mailbox (I mean box with a small hole for letters and lock on it) - anyone can throw letter into it, only key owners are able to open it and read messages!
+<li><strong>mailbox</strong> is like a real mailbox (I mean box with a small hole for letters and lock on it) - anyone can throw letter into it, only key owners are able to open it and read messages!
 <img alt="mailbox" src="https://media.tenor.com/images/dad345322abaecc84f726fe844441984/raw" /></li>
 </ul>
 <h3 id="pool-access-keys">Pool access keys</h3>
-<p>Access to pool is managed via <strong><em>access keys</em></strong>.
+<p>Access to pool is managed via <strong>access keys</strong>.
 There are three different types of them:</p>
 <ul>
 <li><strong><em>master-key</em></strong> is present in pools of any type. It provides access to editing (including keys) and deleting pool.</li>
